@@ -1,0 +1,34 @@
+{
+  "scenarioName": "Validate the API: get client with parameters - ok",
+  "steps": [
+    {
+      "name": "get_client",
+      "url": "/client",
+      "method": "GET",
+      "request": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": "${0}"
+        }
+      },
+      "verify": {
+        "status": 200,
+        "body": {
+          "client": "${1}",
+          "error": {
+            "code": "${2}"
+          }
+        }
+      }
+    }
+  ],
+  "parameterized": {
+    "csvSource": [
+      "0,$NULL,NOT_FOUND",
+      "1,$NOT.NULL,OK",
+      "2,$NULL,NOT_FOUND"
+    ]
+  }
+}

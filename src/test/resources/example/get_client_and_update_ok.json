@@ -1,0 +1,58 @@
+{
+  "scenarioName": "Validate the API: get client and update - ok",
+  "steps": [
+    /* step 1 */
+    {
+      "name": "get_client",
+      "url": "/client",
+      "method": "GET",
+      "request": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 1
+        }
+      },
+      "verify": {
+        "status": 200,
+        "body": {
+          "client": {
+            "id": 1,
+            "name": "Boris",
+            "sum": 12.34,
+            "birthday": "2000-07-31",
+            "active": true
+          },
+          "error": {
+            "code": "OK"
+          }
+        }
+      }
+    },
+    /* step 2 */
+    {
+      "name": "update_client",
+      "url": "/update",
+      "method": "POST",
+      "request": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          /* reference to step 1 */
+          "id": "${$.get_client.response.body.client.id}",
+          "sum": 100
+        }
+      },
+      "verify": {
+        "status": 200,
+        "body": {
+          "error": {
+            "code": "OK"
+          }
+        }
+      }
+    }
+  ]
+}

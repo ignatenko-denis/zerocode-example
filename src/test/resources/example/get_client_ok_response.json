@@ -1,0 +1,12 @@
+{
+  "client": {
+    "id": 1,
+    "name": "Boris",
+    "sum": 12.34,
+    "birthday": "2000-07-31",
+    "active": true
+  },
+  "error": {
+    "code": "OK"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "client": null,
+  "error": {
+    "code": "NOT_FOUND",
+    "message": "Client not found"
+  }
+}

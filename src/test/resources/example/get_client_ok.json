@@ -1,0 +1,20 @@
+{
+  "scenarioName": "Validate the API: get client - ok",
+  "steps": [
+    {
+      "name": "get_client",
+      "url": "/client",
+      "method": "GET",
+      "request": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "${JSON.FILE:example/get_client_ok_request.json}"
+      },
+      "verify": {
+        "status": 200,
+        "body": "${JSON.FILE:example/get_client_ok_response.json}"
+      }
+    }
+  ]
+}

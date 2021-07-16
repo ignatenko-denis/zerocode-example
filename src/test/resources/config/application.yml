@@ -1,0 +1,7 @@
+app:
+  label: test-env
+
+server:
+  port: 8888
+  servlet:
+    context-path: /example
